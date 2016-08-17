@@ -12,13 +12,14 @@ public class TODO extends AppCompatActivity {
 
     ListView mrTodoListview;
     Button mrAddItemButton;
+    //TODO: remove/refactor mrTestList when user lists are functional
     ArrayList<String> mrTestList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo);
-
+//        TODO: remove mrTestList when user lists are functional
         mrTestList.add("The first step");
         mrTestList.add("The second step");
         mrTestList.add("The third step");

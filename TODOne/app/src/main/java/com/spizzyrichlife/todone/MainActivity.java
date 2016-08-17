@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     ListView mrMainListView;
     ArrayAdapter<String> mrArrayAdapter;
     Button mrAddListButton;
+//  TODO: remove/refactor mrTestList when user lists are functional
     ArrayList<String> mrTestList = new ArrayList<>();
 
 
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+//        TODO: remove when user lists are functional
         mrTestList.add("Requirements for TODO List app");
 
         mrMainListView = (ListView) findViewById(R.id.mainListView);
