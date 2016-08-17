@@ -2,11 +2,13 @@ package com.spizzyrichlife.todone;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,6 +47,16 @@ public class MainActivity extends AppCompatActivity {
         mrMainListView = (ListView) findViewById(R.id.mainListView);
         mrArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mrUserTitlesList);
         mrMainListView.setAdapter(mrArrayAdapter);
+
+//        TODO: add an on item click listener
+        mrMainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Intent intent = new Intent(MainActivity.this, TODO.class);
+            startActivity(intent);
+        }
+    });
+
 
 
 //    TODOne: add click listener to button
@@ -103,19 +115,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-//   TODO: add an on item click listener
+
 //    TODO: make on item click redirect to TODO activity with apporopriate info displayed
-//    HOW TO: OnItemClickListener example
-//      listView.setOnItemClickListener(new OnItemClickListener() {
-//
-//        public void onItemClick(AdapterView<?> adapterView, View v, int pos,
-//        long arg3) {
-//            Item i = (Item) adapterView.getItemAtPosition(pos);
-//            ImageView iv = (ImageView) v.findViewById(R.id.imageView1);
-//            iv.setImageResource(R.drawable.your_image);
-//
-//            mPlay = MediaPlayer.create( getApplicationContext(), sarkilar[pos] );
-//            mPlay.start();
-//        }
-//    });
 }
