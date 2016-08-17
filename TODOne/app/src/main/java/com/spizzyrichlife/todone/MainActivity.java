@@ -2,6 +2,11 @@ package com.spizzyrichlife.todone;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 //        Requirements
 //TODO   [ ]    Implement the prototype you created
@@ -16,18 +21,31 @@ import android.support.v7.app.AppCompatActivity;
 //TODO   [ ]    Add an item detail screen that allows the user to give an optional description for each item.
 
 public class MainActivity extends AppCompatActivity {
+    ListView mrMainListView;
+    ArrayAdapter<String> mrArrayAdapter;
+    Button mrAddListButton;
+    ArrayList<String> mrTestList = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mrTestList.add("Requirements for TODO List app");
+
+        mrMainListView = (ListView) findViewById(R.id.mainListView);
+//        TODO: insert list of strings to display in ListView (Replace mrTestList with lists user will fill out)
+        ArrayAdapter<String> mrArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mrTestList);
+        mrMainListView.setAdapter(mrArrayAdapter);
+//        mrArrayAdapter.notifyDataSetChanged();
     }
 //    TODO: implament list view with array adapter and notify dataset change (notify after a change has been made)
 //    HOW TO: ListView, adapter and notify
-//    ListView listView = (ListView)findViewById(R.id.list_view);
-//    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,exampleList);
-//    listView.setAdapter(arrayAdapter);
-//    arrayAdapter.notifyDataSetChanged();
+//      mrMainListview = (ListView) findViewById(R.id.mainListView);
+//      mrArrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,mrMainListView);
+//      mrMainListview.setAdapter(mrArrayAdapter);
+//      mrArrayAdapter.notifyDataSetChanged();
 
 //   TODO: add an on item click listener
 //    TODO: make on item click redirect to TODO activity with apporopriate info displayed
