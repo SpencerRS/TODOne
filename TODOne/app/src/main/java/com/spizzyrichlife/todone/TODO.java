@@ -10,6 +10,8 @@ public class TODO extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo);
     }
+//    TODO: implament list view with array adapter and notify dataset change (notify after a change has been made)
+    
 //    TODO: Add onitemclicklistener to edit text in item
 //    TODO: (Last): add check boxes in item view
 //    TODO: (Last): make check box remove item when list is closed

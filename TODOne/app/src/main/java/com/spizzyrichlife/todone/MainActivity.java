@@ -22,7 +22,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-//    TODO: add an on item click listener
+//    TODO: implament list view with array adapter and notify dataset change (notify after a change has been made)
+//    HOW TO: ListView, adapter and notify
+//    ListView listView = (ListView)findViewById(R.id.list_view);
+//    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,exampleList);
+//    listView.setAdapter(arrayAdapter);
+//    arrayAdapter.notifyDataSetChanged();
+
+//   TODO: add an on item click listener
 //    TODO: make on item click redirect to TODO activity with apporopriate info displayed
 //    HOW TO: OnItemClickListener example
 //      listView.setOnItemClickListener(new OnItemClickListener() {
