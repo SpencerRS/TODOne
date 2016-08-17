@@ -10,4 +10,10 @@ public class TODO extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo);
     }
+//    TODO: Add onitemclicklistener to edit text in item
+//    TODO: (Last): add check boxes in item view
+//    TODO: (Last): make check box remove item when list is closed
+
+//    TODO: add click listener to button
+//    TODO: add pop-up to button to enter desired text
 }
