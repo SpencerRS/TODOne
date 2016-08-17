@@ -16,11 +16,11 @@ import java.util.ArrayList;
 
 //        Requirements
 //TODO   [ ]    Implement the prototype you created
-//TODO   [ ]    View a collection of to-do lists
+//TODOne [X]    View a collection of to-do lists
 //TODO   [ ]    View items on a to-do list
-//TODO   [ ]    Allow the user to create a new to-do list
+//TODOne [X]    Allow the user to create a new to-do list
 //TODO   [ ]    Add items to each to-do list
-//TODO   [ ]    Display correctly in both landscape and portrait orientations
+//TODO   [V]    Display correctly in both landscape and portrait orientations
 //        Bonus:
 //TODO   [ ]    Show an error message if invalid input is given
 //TODO   [ ]    Allow the user to check off and remove completed items
@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 //        TODO: remove when user lists are functional?
         mrUserTitlesList.add("Requirements for TODO List app");
 
+
+//    TODOne: implament list view with array adapter and notify dataset change (notify after a change has been made)
         mrMainListView = (ListView) findViewById(R.id.mainListView);
         mrArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mrUserTitlesList);
         mrMainListView.setAdapter(mrArrayAdapter);
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void setTitlePopUp() {
-//      TODO: add pop-out window to enter title of list
+//      TODOne: add pop-up window to enter title of list
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogue, int id) {
                 mrUserTitlesList.add(input.getText().toString());
                 mrArrayAdapter.notifyDataSetChanged();
+//                TODO: make pop-out redirect to TODO activity?
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 
@@ -98,12 +101,7 @@ public class MainActivity extends AppCompatActivity {
 //                }
 //            });
 
-//    TODO: implament list view with array adapter and notify dataset change (notify after a change has been made)
-//    HOW TO: ListView, adapter and notify
-//      mrMainListview = (ListView) findViewById(R.id.mainListView);
-//      mrArrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,mrMainListView);
-//      mrMainListview.setAdapter(mrArrayAdapter);
-//      mrArrayAdapter.notifyDataSetChanged();
+
 
 //   TODO: add an on item click listener
 //    TODO: make on item click redirect to TODO activity with apporopriate info displayed
@@ -120,5 +118,4 @@ public class MainActivity extends AppCompatActivity {
 //            mPlay.start();
 //        }
 //    });
-//    TODO: make pop-out redirect to TODO activity
 }
