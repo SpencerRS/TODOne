@@ -1,10 +1,15 @@
 package com.spizzyrichlife.todone;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -25,31 +30,74 @@ public class MainActivity extends AppCompatActivity {
     ListView mrMainListView;
     ArrayAdapter<String> mrArrayAdapter;
     Button mrAddListButton;
-//  TODO: remove/refactor mrTestList when user lists are functional
-    ArrayList<String> mrTestList = new ArrayList<>();
+    ArrayList<String> mrUserTitlesList = new ArrayList<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        TODO: remove when user lists are functional
-        mrTestList.add("Requirements for TODO List app");
+//        TODO: remove when user lists are functional?
+        mrUserTitlesList.add("Requirements for TODO List app");
 
         mrMainListView = (ListView) findViewById(R.id.mainListView);
-//        TODO: insert list of strings to display in ListView (Replace mrTestList with lists user will fill out)
-        ArrayAdapter<String> mrArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mrTestList);
+        mrArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mrUserTitlesList);
         mrMainListView.setAdapter(mrArrayAdapter);
-//        mrArrayAdapter.notifyDataSetChanged();
 
+
+//    TODOne: add click listener to button
         mrAddListButton = (Button) findViewById(R.id.addListButton);
         mrAddListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                setTitlePopUp();
             }
-        };
+        });
     }
+
+
+    public void setTitlePopUp() {
+//      TODO: add pop-out window to enter title of list
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+        builder.setMessage("Name your new List").setPositiveButton("Set title", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialogue, int id) {
+                mrUserTitlesList.add(input.getText().toString());
+                mrArrayAdapter.notifyDataSetChanged();
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialogue, int id) {
+//                TODOne: Ask how to cancel an alert dialogue; add it here
+            }
+        });
+        Dialog dialog = builder.create();
+        dialog.show();
+    }
+//    HOW TO: alertDialog (POP UP) example
+//public void changeTheText(View v) {
+//    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//
+//    final EditText input = new EditText(this);
+//    input.setInputType(InputType.TYPE_CLASS_TEXT);
+//
+//    builder.setView(input);
+//
+//    builder.setMessage(R.string.change_the_text)
+//            .setPositiveButton(R.string.change, new DialogInterface.OnClickListener() {
+//                public void onClick(DialogInterface dialog, int id) {
+//                    textView.setText(input.getText().toString());
+//                }
+//            })
+//            .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+//                public void onClick(DialogInterface dialog, int id) {
+//                    textView.setText(R.string.nevermind);
+//                }
+//            });
+
 //    TODO: implament list view with array adapter and notify dataset change (notify after a change has been made)
 //    HOW TO: ListView, adapter and notify
 //      mrMainListview = (ListView) findViewById(R.id.mainListView);
@@ -72,28 +120,5 @@ public class MainActivity extends AppCompatActivity {
 //            mPlay.start();
 //        }
 //    });
-
-//    TODO: add click listener to button
-//    TODO: add pop-out window to enter title of list
-//    HOW TO: alertDialog (POP UP) example
-//public void changeTheText(View v) {
-//    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//
-//    final EditText input = new EditText(this);
-//    input.setInputType(InputType.TYPE_CLASS_TEXT);
-//
-//    builder.setView(input);
-//
-//    builder.setMessage(R.string.change_the_text)
-//            .setPositiveButton(R.string.change, new DialogInterface.OnClickListener() {
-//                public void onClick(DialogInterface dialog, int id) {
-//                    textView.setText(input.getText().toString());
-//                }
-//            })
-//            .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-//                public void onClick(DialogInterface dialog, int id) {
-//                    textView.setText(R.string.nevermind);
-//                }
-//            });
 //    TODO: make pop-out redirect to TODO activity
 }
