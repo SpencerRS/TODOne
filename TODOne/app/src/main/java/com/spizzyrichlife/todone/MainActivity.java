@@ -2,6 +2,7 @@ package com.spizzyrichlife.todone;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -40,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> mrArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mrTestList);
         mrMainListView.setAdapter(mrArrayAdapter);
 //        mrArrayAdapter.notifyDataSetChanged();
+
+        mrAddListButton = (Button) findViewById(R.id.addListButton);
+        mrAddListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        };
     }
 //    TODO: implament list view with array adapter and notify dataset change (notify after a change has been made)
 //    HOW TO: ListView, adapter and notify
