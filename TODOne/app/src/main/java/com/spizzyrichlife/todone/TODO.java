@@ -1,15 +1,17 @@
 package com.spizzyrichlife.todone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class TODO extends AppCompatActivity {
-
+    TextView titleTV;
     ListView mrTodoListview;
     Button mrAddItemButton;
     //TODO: remove/refactor mrTestList when user lists are functional
@@ -19,6 +21,13 @@ public class TODO extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo);
+        titleTV = (TextView) findViewById(R.id.todoTitle);
+
+//          TODO: Get intent from MainActivity
+        Intent intent = getIntent();
+        String title = intent.getStringExtra("TITLE");
+        titleTV.setText(title);
+
 //        TODO: remove mrTestList when user lists are functional
         mrTestList.add("The first step");
         mrTestList.add("The second step");

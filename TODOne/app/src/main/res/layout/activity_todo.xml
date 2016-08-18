@@ -34,7 +34,8 @@
         <Button
             android:layout_width="42dp"
             android:layout_height="match_parent"
-            android:id="@+id/addItemButton"/>
+            android:id="@+id/addItemButton"
+            android:text="+"/>
     </LinearLayout>
 
 </LinearLayout>
