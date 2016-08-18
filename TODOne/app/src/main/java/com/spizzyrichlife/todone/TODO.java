@@ -53,6 +53,15 @@ public class TODO extends AppCompatActivity {
         String title = intent.getStringExtra("TITLE");
         titleTV.setText(title);
 
+        if(title.equals("Requirements")){
+            mrItemList.add("Implement the prototype you created");
+            mrItemList.add("View a collection of to-do lists");
+            mrItemList.add("View items on a to-do list");
+            mrItemList.add("Allow the user to create a new to-do list");
+            mrItemList.add("Add items to each to-do list");
+            mrItemList.add("Display correctly in both landscape and portrait orientations");
+        }
+
         mrTodoListview = (ListView) findViewById(R.id.todoListView);
 
         ArrayAdapter<String> mrArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mrItemList);
