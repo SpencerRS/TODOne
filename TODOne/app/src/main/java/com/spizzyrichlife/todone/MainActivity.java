@@ -17,9 +17,9 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 //        Requirements
-//TODO   [ ]    Implement the prototype you created
+//TODO   [V]    Implement the prototype you created
 //TODOne [X]    View a collection of to-do lists
-//TODO   [ ]    View items on a to-do list
+//TODOne [X]    View items on a to-do list
 //TODOne [X]    Allow the user to create a new to-do list
 //TODO   [ ]    Add items to each to-do list
 //TODO   [V]    Display correctly in both landscape and portrait orientations
@@ -50,15 +50,13 @@ public class MainActivity extends AppCompatActivity {
 
 //        TODO: add an on item click listener
         mrMainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Intent intent = new Intent(MainActivity.this, TODO.class);
-            intent.putExtra("TITLE", (mrUserTitlesList.get(position)));
-            startActivity(intent);
-        }
-    });
-
-
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this, TODO.class);
+                intent.putExtra("TITLE", (mrUserTitlesList.get(position)));
+                startActivity(intent);
+            }
+        });
 
 //    TODOne: add click listener to button
         mrAddListButton = (Button) findViewById(R.id.addListButton);
@@ -93,29 +91,6 @@ public class MainActivity extends AppCompatActivity {
         Dialog dialog = builder.create();
         dialog.show();
     }
-//    HOW TO: alertDialog (POP UP) example
-//public void changeTheText(View v) {
-//    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//
-//    final EditText input = new EditText(this);
-//    input.setInputType(InputType.TYPE_CLASS_TEXT);
-//
-//    builder.setView(input);
-//
-//    builder.setMessage(R.string.change_the_text)
-//            .setPositiveButton(R.string.change, new DialogInterface.OnClickListener() {
-//                public void onClick(DialogInterface dialog, int id) {
-//                    textView.setText(input.getText().toString());
-//                }
-//            })
-//            .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-//                public void onClick(DialogInterface dialog, int id) {
-//                    textView.setText(R.string.nevermind);
-//                }
-//            });
-
-
-
 
 //    TODO: make on item click redirect to TODO activity with apporopriate info displayed
 }

@@ -1,10 +1,16 @@
 package com.spizzyrichlife.todone;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -13,47 +19,68 @@ import java.util.ArrayList;
 public class TODO extends AppCompatActivity {
     TextView titleTV;
     ListView mrTodoListview;
+    ArrayAdapter<String> mrArrayAdapter;
     Button mrAddItemButton;
-    //TODO: remove/refactor mrTestList when user lists are functional
-    ArrayList<String> mrTestList = new ArrayList<>();
+    //TODOne: refactor mrTestList when user lists are functional
+    ArrayList<String> mrItemList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo);
         titleTV = (TextView) findViewById(R.id.todoTitle);
+//        TODOne: remove mrTestList when user lists are functional
+//        mrItemList.add("The first step");
+//        mrItemList.add("The second step");
+//        mrItemList.add("The third step");
 
-//          TODO: Get intent from MainActivity
+//    TODOne: implament list view with array adapter and notify dataset change (notify after a change has been made)
+        mrTodoListview = (ListView) findViewById(R.id.todoListView);
+        mrArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mrItemList);
+        mrTodoListview.setAdapter(mrArrayAdapter);
+
+//          TODOne: Get intent from MainActivity
         Intent intent = getIntent();
         String title = intent.getStringExtra("TITLE");
         titleTV.setText(title);
 
-//        TODO: remove mrTestList when user lists are functional
-        mrTestList.add("The first step");
-        mrTestList.add("The second step");
-        mrTestList.add("The third step");
         mrTodoListview = (ListView) findViewById(R.id.todoListView);
-//        TODO: insert list of strings to display in ListView (Replace mrTestList with lists user will fill out)
-        ArrayAdapter<String> mrArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mrTestList);
+
+        ArrayAdapter<String> mrArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mrItemList);
+
+        //    TODOne: add click listener to button
+//        TODO: make TODO remember specific lists for each title
+        mrAddItemButton = (Button) findViewById(R.id.addItemButton);
+        mrAddItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setItemPopUp();
+            }
+        });
     }
-//    TODO: implament list view with array adapter and notify dataset change (notify after a change has been made)
-//    HOW TO: ListView, adapter and notify
-//      mrMainListview = (ListView) findViewById(R.id.mainListView);
-//      ArrayAdapter<String>  mrArrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,LIST);
-//      mrMainListview.setAdapter(mrArrayAdapter);
-//      mrArrayAdapter.notifyDataSetChanged();
+
+    //    TODOne: add pop-up to button to enter desired text
+    public void setItemPopUp() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+        builder.setMessage("Add an item to your TODO list").setPositiveButton("Set item", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialogue, int id) {
+                mrItemList.add(input.getText().toString());
+                mrArrayAdapter.notifyDataSetChanged();
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialogue, int id) {
+
+            }
+        });
+        Dialog dialog = builder.create();
+        dialog.show();
+    }
 //    TODO: Add onitemclicklistener to edit text in item
 //    TODO: (Last): add check boxes in item view
 //    TODO: (Last): make check box remove item when list is closed
-
-//    TODO: add click listener to button
-//    HOW TO: Set on click listener example
-//    mrAddListButton = (Button) findViewById(R.id.addListButton);
-//    mrAddListButton.setOnClickListener(new View.OnClickListener() {
-//        @Override
-//        public void onClick(View view) {
-//
-//        }
-//    };
-//    TODO: add pop-up to button to enter desired text
 }

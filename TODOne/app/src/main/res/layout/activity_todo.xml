@@ -13,9 +13,9 @@
     <TextView
         android:id="@+id/todoTitle"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:text="Title"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:layout_weight="1.5"/>
 
     <ListView
