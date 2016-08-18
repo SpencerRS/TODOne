@@ -21,7 +21,7 @@ import java.util.ArrayList;
 //TODOne [X]    View a collection of to-do lists
 //TODOne [X]    View items on a to-do list
 //TODOne [X]    Allow the user to create a new to-do list
-//TODO   [ ]    Add items to each to-do list
+//TODO   [V]    Add items to each to-do list
 //TODO   [V]    Display correctly in both landscape and portrait orientations
 //        Bonus:
 //TODO   [ ]    Show an error message if invalid input is given
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         mrArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mrUserTitlesList);
         mrMainListView.setAdapter(mrArrayAdapter);
 
-//        TODO: add an on item click listener
+//        TODOne: add an on item click listener
         mrMainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

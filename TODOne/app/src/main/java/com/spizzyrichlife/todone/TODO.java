@@ -8,6 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,6 +39,14 @@ public class TODO extends AppCompatActivity {
         mrTodoListview = (ListView) findViewById(R.id.todoListView);
         mrArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mrItemList);
         mrTodoListview.setAdapter(mrArrayAdapter);
+
+//    TODO: Add onitemclicklistener to edit text in item
+        mrTodoListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//            TODO: set text for item at position
+            }
+        });
 
 //          TODOne: Get intent from MainActivity
         Intent intent = getIntent();
@@ -80,7 +89,6 @@ public class TODO extends AppCompatActivity {
         Dialog dialog = builder.create();
         dialog.show();
     }
-//    TODO: Add onitemclicklistener to edit text in item
 //    TODO: (Last): add check boxes in item view
 //    TODO: (Last): make check box remove item when list is closed
 }
