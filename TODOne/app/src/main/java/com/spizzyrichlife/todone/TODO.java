@@ -53,7 +53,7 @@ public class TODO extends AppCompatActivity {
         String title = intent.getStringExtra("TITLE");
         titleTV.setText(title);
 
-        if(title.equals("Requirements")){
+        if (title.equals("Requirements")) {
             mrItemList.add("Implement the prototype you created");
             mrItemList.add("View a collection of to-do lists");
             mrItemList.add("View items on a to-do list");
@@ -98,6 +98,30 @@ public class TODO extends AppCompatActivity {
         Dialog dialog = builder.create();
         dialog.show();
     }
+
+//    TODO: add text edit popup
+//public void editTextPopUp(final int position) {
+//    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//    final EditText input = new EditText(this);
+//    input.setInputType(InputType.TYPE_CLASS_TEXT);
+//    builder.setView(input);
+//    builder.setMessage("Rename your item").setPositiveButton("Set item", new DialogInterface.OnClickListener() {
+//
+//        public void onClick(DialogInterface dialogue, int id) {
+//            mrItemList[position].setText(input);
+//            mrArrayAdapter.notifyDataSetChanged();
+//        }
+//    }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//
+//        public void onClick(DialogInterface dialogue, int id) {
+//
+//        }
+//    });
+//    Dialog dialog = builder.create();
+//    dialog.show();
+//}
+
+
 //    TODO: (Last): add check boxes in item view
-//    TODO: (Last): make check box remove item when list is closed
+//    TODOne: (Last): make check box remove item when list is closed (not in scope)
 }

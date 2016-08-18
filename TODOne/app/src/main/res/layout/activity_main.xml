@@ -20,16 +20,17 @@
     </ListView>
 
     <LinearLayout
-        android:layout_gravity="right"
-        android:gravity="right"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_gravity="right"
+        android:layout_weight="1"
+        android:gravity="right">
 
         <Button
-            android:layout_width="42dp"
+            android:id="@+id/addListButton"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="+"
-            android:id="@+id/addListButton"/>
+            android:text="Create new List"
+            android:textAlignment="center" />
     </LinearLayout>
 </LinearLayout>

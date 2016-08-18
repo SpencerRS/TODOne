@@ -13,29 +13,30 @@
     <TextView
         android:id="@+id/todoTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:text="Title"
-        android:textSize="30sp"
-        android:layout_weight="1.5"/>
+        android:textSize="30sp" />
 
     <ListView
         android:id="@+id/todoListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7.5">
-    </ListView>
+        android:layout_weight="7.5"></ListView>
+
     <LinearLayout
-        android:layout_gravity="right"
-        android:gravity="right"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_gravity="right"
+        android:layout_weight="1"
+        android:gravity="right">
 
         <Button
-            android:layout_width="42dp"
-            android:layout_height="match_parent"
             android:id="@+id/addItemButton"
-            android:text="+"/>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Add new TODO item"
+            android:textAlignment="center" />
     </LinearLayout>
 
 </LinearLayout>

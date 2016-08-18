@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        TODO: remove when user lists are functional?
+//        TODOne: remove when user lists are functional? (No, demo a filled list)
         mrUserTitlesList.add("Requirements");
 
 
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         mrMainListView.setAdapter(mrArrayAdapter);
 
 //        TODOne: add an on item click listener
+//        TODOne: make on item click redirect to "Tudo" activity with apporopriate info displayed
         mrMainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -91,6 +92,4 @@ public class MainActivity extends AppCompatActivity {
         Dialog dialog = builder.create();
         dialog.show();
     }
-
-//    TODO: make on item click redirect to TODO activity with apporopriate info displayed
 }
