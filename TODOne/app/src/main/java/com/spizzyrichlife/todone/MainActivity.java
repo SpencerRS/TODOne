@@ -30,6 +30,7 @@ import java.util.ArrayList;
 //TODO   [V]    Allow the user to rename list items
 //TODO   [ ]    (Weekend?) Add an item detail screen that allows the user to give an optional description for each item
 //                  ^This^ just seems like we want to go one layer deeper. Should be easy.
+//TODO(Weekend):         Add a Git Ignore
 
 public class MainActivity extends AppCompatActivity {
     ListView mrMainListView;
