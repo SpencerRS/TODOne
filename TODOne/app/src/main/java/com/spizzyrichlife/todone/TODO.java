@@ -8,7 +8,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,12 +40,14 @@ public class TODO extends AppCompatActivity {
         mrTodoListview.setAdapter(mrArrayAdapter);
 
 //    TODO: Add onitemclicklistener to edit text in item
-        mrTodoListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//            TODO: set text for item at position
-            }
-        });
+//        mrTodoListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+////            TODO: set text for item at position
+//                editTextPopUp(position);
+//
+//            }
+//        });
 
 //          TODOne: Get intent from MainActivity
         Intent intent = getIntent();
@@ -108,19 +109,20 @@ public class TODO extends AppCompatActivity {
         dialog.show();
     }
 
-//    TODO: add text edit popup
+//    TODO: add text edit popup (Double commented lines creating issues)
 //public void editTextPopUp(final int position) {
 //    AlertDialog.Builder builder = new AlertDialog.Builder(this);
 //    final EditText input = new EditText(this);
+////    input = Array.get(mrItemList.get(position)).toString();
 //    input.setInputType(InputType.TYPE_CLASS_TEXT);
 //    builder.setView(input);
 //    builder.setMessage("Rename your item").setPositiveButton("Set item", new DialogInterface.OnClickListener() {
 //
 //        public void onClick(DialogInterface dialogue, int id) {
-//            mrItemList[position].setText(input);
+////            mrItemList[position].setText(input);
 //            mrArrayAdapter.notifyDataSetChanged();
 //        }
-//    }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//    }).setNegativeButton("Delete", new DialogInterface.OnClickListener() {
 //
 //        public void onClick(DialogInterface dialogue, int id) {
 //
