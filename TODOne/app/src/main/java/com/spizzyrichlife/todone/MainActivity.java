@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 //TODOne [X]    Add items to each to-do list
 //TODOne [X]    Display correctly in both landscape and portrait orientations
 //        Bonus:
-//TODO   [ ]    Show an error message if invalid input is given
+//TODOne [X]    Show an error message if invalid input is given
 //TODO   [ ]    Allow the user to check off and remove completed items
 //TODO   [ ]    Add an item detail screen that allows the user to give an optional description for each item.
 
@@ -79,8 +80,12 @@ public class MainActivity extends AppCompatActivity {
         builder.setMessage("Name your new List").setPositiveButton("Set title", new DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialogue, int id) {
-                mrUserTitlesList.add(input.getText().toString());
-                mrArrayAdapter.notifyDataSetChanged();
+                if (checkDuplicate(input)) {
+                    Toast.makeText(MainActivity.this, "That list already exists!", Toast.LENGTH_SHORT).show();
+                } else {
+                    mrUserTitlesList.add(input.getText().toString());
+                    mrArrayAdapter.notifyDataSetChanged();
+                }
 //                TODO: make pop-out redirect to TODO activity?
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -91,5 +96,15 @@ public class MainActivity extends AppCompatActivity {
         });
         Dialog dialog = builder.create();
         dialog.show();
+    }
+// TODOne: Check for duplicates and treat as invalid input
+    public boolean checkDuplicate(EditText input) {
+        boolean result = false;
+        for (int i = 0; i < mrUserTitlesList.size(); i++) {
+            if (mrUserTitlesList.get(i).equals(input.toString())) {
+                result = true;
+            }
+        }
+        return result;
     }
 }
