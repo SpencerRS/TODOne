@@ -26,8 +26,10 @@ import java.util.ArrayList;
 //TODOne [X]    Display correctly in both landscape and portrait orientations
 //        Bonus:
 //TODOne [X]    Show an error message if invalid input is given
-//TODO   [ ]    Allow the user to check off and remove completed items
-//TODO   [ ]    Add an item detail screen that allows the user to give an optional description for each item.
+//TODO   [V]    Allow the user to check off and remove completed items
+//TODO   [V]    Allow the user to rename list items
+//TODO   [ ]    (Weekend?) Add an item detail screen that allows the user to give an optional description for each item
+//                  ^This^ just seems like we want to go one layer deeper. Should be easy.
 
 public class MainActivity extends AppCompatActivity {
     ListView mrMainListView;
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
 //    TODOne: implament list view with array adapter and notify dataset change (notify after a change has been made)
         mrMainListView = (ListView) findViewById(R.id.mainListView);
-        //TODO: make new layout to replace "simple_list_item_1" below.
+        //TODO (weekend?): make new layout to replace "simple_list_item_1" below.
         mrArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mrUserTitlesList);
         mrMainListView.setAdapter(mrArrayAdapter);
 

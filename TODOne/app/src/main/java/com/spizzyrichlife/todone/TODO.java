@@ -39,7 +39,7 @@ public class TODO extends AppCompatActivity {
         mrArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mrItemList);
         mrTodoListview.setAdapter(mrArrayAdapter);
 
-//    TODO: Add onitemclicklistener to edit text in item
+//    TODO (Weekend?): Add onitemclicklistener to edit text in item
 //        mrTodoListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -63,6 +63,7 @@ public class TODO extends AppCompatActivity {
             mrItemList.add("Display correctly in both landscape and portrait orientations");
         }
         if (title.equals("Hide These")) {
+//              TODO: make this change text color for hidden to-do list.
 //            TextView tint = (TextView) findViewById(R.id.whereTheColorsWillChange);
 //            tint.setBackground(#05cfc5);
             mrItemList.add("These are hidden strings");
@@ -76,8 +77,8 @@ public class TODO extends AppCompatActivity {
 
         ArrayAdapter<String> mrArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mrItemList);
 
-        //    TODOne: add click listener to button
-//        TODO: make TODO remember specific lists for each title
+//        TODOne: add click listener to button
+//        TODOnot: make each list remember specific items for each title
         mrAddItemButton = (Button) findViewById(R.id.addItemButton);
         mrAddItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,30 +110,30 @@ public class TODO extends AppCompatActivity {
         dialog.show();
     }
 
-//    TODO: add text edit popup (Double commented lines creating issues)
-//public void editTextPopUp(final int position) {
-//    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//    final EditText input = new EditText(this);
+    //    TODO: add text edit popup (Double commented lines creating issues)
+//    public void editTextPopUp(final int position) {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        final EditText input = new EditText(this);
 ////    input = Array.get(mrItemList.get(position)).toString();
-//    input.setInputType(InputType.TYPE_CLASS_TEXT);
-//    builder.setView(input);
-//    builder.setMessage("Rename your item").setPositiveButton("Set item", new DialogInterface.OnClickListener() {
+//        input.setInputType(InputType.TYPE_CLASS_TEXT);
+//        builder.setView(input);
+//        builder.setMessage("Rename your item").setPositiveButton("Set item", new DialogInterface.OnClickListener() {
 //
-//        public void onClick(DialogInterface dialogue, int id) {
+//            public void onClick(DialogInterface dialogue, int id) {
 ////            mrItemList[position].setText(input);
-//            mrArrayAdapter.notifyDataSetChanged();
-//        }
-//    }).setNegativeButton("Delete", new DialogInterface.OnClickListener() {
-//
-//        public void onClick(DialogInterface dialogue, int id) {
-//
-//        }
-//    });
-//    Dialog dialog = builder.create();
-//    dialog.show();
-//}
+//                mrArrayAdapter.notifyDataSetChanged();
+//            }
+//        }).setNegativeButton("Delete", new DialogInterface.OnClickListener() {
+////            TODOne: add functionality to delete an item
+//            public void onClick(DialogInterface dialogue, int id) {
+//                mrItemList.remove(position);
+//            }
+//        });
+//        Dialog dialog = builder.create();
+//        dialog.show();
+//    }
 
 
-//    TODO: (Last): add check boxes in item view
-//    TODOne: (Last): make check box remove item when list is closed (not in scope)
+//    TODO: (Last): add check boxes in item view (use custom layout list item?)
+//    TODO: (Last): make check box remove item when list is closed (not in scope of timetable)
 }
