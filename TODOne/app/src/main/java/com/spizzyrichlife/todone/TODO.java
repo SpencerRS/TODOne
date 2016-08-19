@@ -61,6 +61,15 @@ public class TODO extends AppCompatActivity {
             mrItemList.add("Add items to each to-do list");
             mrItemList.add("Display correctly in both landscape and portrait orientations");
         }
+        if (title.equals("Hide These")) {
+//            TextView tint = (TextView) findViewById(R.id.whereTheColorsWillChange);
+//            tint.setBackground(#05cfc5);
+            mrItemList.add("These are hidden strings");
+            mrItemList.add("But if you looked at the code, you probably saw them");
+            mrItemList.add("I wanted to see if I could make the colors change");
+            mrItemList.add("Do the colors look any different?");
+            mrItemList.add("No they don't, it didn't like the pound-color-code");
+        }
 
         mrTodoListview = (ListView) findViewById(R.id.todoListView);
 

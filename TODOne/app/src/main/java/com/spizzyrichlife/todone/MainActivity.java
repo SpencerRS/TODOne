@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
 //    TODOne: implament list view with array adapter and notify dataset change (notify after a change has been made)
         mrMainListView = (ListView) findViewById(R.id.mainListView);
+        //TODO: make new layout to replace "simple_list_item_1" below.
         mrArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mrUserTitlesList);
         mrMainListView.setAdapter(mrArrayAdapter);
 
