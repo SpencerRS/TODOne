@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TODOne</string>
+    <string name="create_new_list_button">Create new list button</string>
+    <string name="main_to_do_list">Main to do list</string>
+    <string name="to_do_list_items">To do list items</string>
+    <string name="add_new_to_do_list_item">Add new to do list item</string>
+    <string name="to_do_list_title">To do list title</string>
 </resources>

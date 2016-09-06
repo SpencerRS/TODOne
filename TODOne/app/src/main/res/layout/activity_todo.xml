@@ -18,13 +18,15 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:text="Title"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:contentDescription="@string/to_do_list_title"/>
 
     <ListView
         android:id="@+id/todoListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7.5"></ListView>
+        android:layout_weight="7.5"
+        android:contentDescription="@string/to_do_list_items"></ListView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,7 +41,8 @@
             android:layout_height="match_parent"
             android:text="Add new TODO item"
             android:background="#05cfc5"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:contentDescription="@string/add_new_to_do_list_item"/>
     </LinearLayout>
 
 </LinearLayout>
